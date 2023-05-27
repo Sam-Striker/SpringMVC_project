@@ -30,8 +30,8 @@ public class LoginController {
 
     @GetMapping("/registration")
     public String registrationForm(Model model) {
-        List<Role> roles = repo.findAll();
-        model.addAttribute("roles", roles);
+//        List<Role> roles = repo.findAll();
+//        model.addAttribute("roles", roles);
         UserDto user = new UserDto();
         model.addAttribute("user", user);
         return "registration";

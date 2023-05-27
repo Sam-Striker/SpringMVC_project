@@ -23,7 +23,8 @@ public class UserDto {
 
     @NotEmpty(message = "Please enter valid password.")
     private String password;
-    @NotEmpty(message = "Please enter valid password.")
-    private String roles;
+
+//    @NotEmpty(message = "Please enter valid password.")
+//    private String roles;
 }
 

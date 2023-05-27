@@ -45,13 +45,13 @@
                 </div>
             <div class="form-group row">
                 <!--                    <label class="col-4 col-form-label" for="password">Password</label>-->
-                <div class="col-8">
-                    <select th:field="*{roles}" class="form-control" required>
-                        <th:block th:each="role : ${roles}">
-                            <option th:text="${role.id}" th:value="${role.id}" />
-                        </th:block>
-                    </select>
-                </div>
+<!--                <div class="col-8">-->
+<!--                    <select th:field="*{roles}" class="form-control" required>-->
+<!--                        <th:block th:each="role : ${roles}">-->
+<!--                            <option th:text="${role.id}" th:value="${role.id}" />-->
+<!--                        </th:block>-->
+<!--                    </select>-->
+<!--                </div>-->
                 <p class="text-danger" th:errors="*{password}"
                    th:if="${#fields.hasErrors('password')}"></p>
             </div>
