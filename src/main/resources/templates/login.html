@@ -1,0 +1,51 @@
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<!--  <link rel="stylesheet" type="text/css" href="login.css">-->
+  <link rel="stylesheet" th:href="@{/css/login.css}" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+  <div class="login">
+    <div class="container">
+      <h1>Log in</h1>
+      <form  method="post" role="form" th:action="@{/login}">
+        <div th:if="${param.error}">
+          <div class="alert alert-danger">Invalid Email or Password !!!</div>
+        </div>
+        <div th:if="${param.logout}">
+          <div class="alert alert-success">You have been logged out !!</div>
+        </div>
+      <input id="username" name="username" type="email" placeholder="Email">
+      <input id="password" name="password" type="password" placeholder="Password"><br>
+
+      <a href="#">Forgot password?</a>
+      <button type="submit" >log in</button>
+      </form>
+      <hr><p>Or Connect With</p><hr>
+      <ul>
+        <li><i class="fab fa-facebook-f fa-2x"></i></li>
+        <li><i class="fab fa-twitter fa-2x"></i></li>
+        <li><i class="fab fa-github fa-2x"></i></li>
+        <li><i class="fab fa-linkedin-in fa-2x"></i></li>
+      </ul>
+      <div class="clearfix"></div>
+      <span class="copyright">&copy;2019</span>
+    </div>
+  </div>
+  <div class="register">
+    <div class="container">
+      <i class="fas fa-user-plus fa-5x"></i>
+      <h2>Hello,friend!</h2>
+      <p>Enter your personal details and start journey with us</p>
+      <a class="item " th:href="@{/registration}">Register <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

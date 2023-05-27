@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/login.css}" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <title>Registration Page</title>
+</head>
+<body>
+<div class="container">
+    <div class="login">
+        <div class="container">
+            <h1>Register</h1>
+        <form method="post" role="form" th:action="@{/registration}" th:object="${user}" style="max-width: 600px; margin: 0 auto;">
+
+                <div th:if="${param.success}">
+                    <div class="alert alert-info">
+                        Registered successfully !!!
+                    </div>
+                </div>
+                <div class="form-group row">
+<!--                    <label class="form-label col-4" for="name">Name</label>-->
+                    <div class="col-8">
+                    <input class="form-control" id="name" name="name" type="text">
+                    </div>
+                    <p class="text-danger" th:errors="*{name}"
+                       th:if="${#fields.hasErrors('name')}"></p>
+                </div>
+                <div class="form-group row">
+<!--                    <label class="form-label col-4" for="email">Email</label>-->
+                    <div class="col-8">
+                    <input class="form-control" id="email" name="email" type="email">
+                    </div>
+                    <p class="text-danger" th:errors="*{email}"
+                       th:if="${#fields.hasErrors('email')}"></p>
+                </div>
+
+                <div class="form-group row">
+<!--                    <label class="col-4 col-form-label" for="password">Password</label>-->
+                    <div class="col-8">
+                    <input class="form-control" id="password" name="password" type="password">
+                    </div>
+                    <p class="text-danger" th:errors="*{password}"
+                       th:if="${#fields.hasErrors('password')}"></p>
+                </div>
+            <div class="form-group row">
+                <!--                    <label class="col-4 col-form-label" for="password">Password</label>-->
+                <div class="col-8">
+                    <select th:field="*{roles}" class="form-control" required>
+                        <th:block th:each="role : ${roles}">
+                            <option th:text="${role.id}" th:value="${role.id}" />
+                        </th:block>
+                    </select>
+                </div>
+                <p class="text-danger" th:errors="*{password}"
+                   th:if="${#fields.hasErrors('password')}"></p>
+            </div>
+                <div class="ml-auto">
+                    <button class="btn btn-primary " type="submit">Register</button>
+                </div>
+            </form>
+            <hr><p>Or Connect With</p><hr>
+            <ul>
+                <li><i class="fab fa-facebook-f fa-2x"></i></li>
+                <li><i class="fab fa-twitter fa-2x"></i></li>
+                <li><i class="fab fa-github fa-2x"></i></li>
+                <li><i class="fab fa-linkedin-in fa-2x"></i></li>
+            </ul>
+            <div class="clearfix"></div>
+            <span class="copyright">&copy;2019</span>
+        </div>
+    </div>
+    <div class="register">
+        <div class="container">
+            <i class="fas fa-user-plus fa-5x"></i>
+            <h2>Hello,friend!</h2>
+            <p>Enter your personal details and start journey with us</p>
+            <a class="btn" th:href="@{/login}">Login <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+</div>
+
+
+<script crossorigin="anonymous"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
